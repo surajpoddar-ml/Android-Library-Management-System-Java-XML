@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Brand / Primary Colors -->
+    <color name="primary">#1A2B49</color>
+    <color name="primary_dark">#0F1D33</color>
+    <color name="primary_light">#2E4369</color>
+    
+    <!-- Accent / Secondary Colors -->
+    <color name="accent">#2979FF</color>
+    <color name="accent_dark">#1565C0</color>
+    <color name="accent_light">#E3F2FD</color>
+    
+    <!-- Background & Surface -->
+    <color name="background">#F5F7FB</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="divider">#E2E8F0</color>
+    <color name="border">#CBD5E1</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#1E293B</color>
+    <color name="text_secondary">#64748B</color>
+    <color name="text_muted">#94A3B8</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    
+    <!-- Status & Semantic Colors -->
+    <color name="status_success">#2E7D32</color>
+    <color name="status_success_light">#E8F5E9</color>
+    <color name="status_warning">#E65100</color>
+    <color name="status_warning_light">#FFF3E0</color>
+    <color name="status_danger">#C62828</color>
+    <color name="status_danger_light">#FFEBEE</color>
+    <color name="status_info">#1565C0</color>
+    <color name="status_info_light">#E3F2FD</color>
+    
+    <!-- Badges / Overlays -->
+    <color name="badge_returned">#2E7D32</color>
+    <color name="badge_issued">#1565C0</color>
+    <color name="badge_overdue">#C62828</color>
+    <color name="ripple_color">#1F2979FF</color>
+</resources>

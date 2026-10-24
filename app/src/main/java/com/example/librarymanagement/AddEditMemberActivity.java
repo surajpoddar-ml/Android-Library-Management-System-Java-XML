@@ -13,11 +13,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-/**
- * Activity for registering a new member or editing member profile details.
- */
 public class AddEditMemberActivity extends AppCompatActivity {
-
     private MaterialToolbar toolbar;
     private TextInputLayout tilName, tilMembershipId, tilEmail, tilPhone, tilAddress;
     private TextInputEditText etName, etMembershipId, etEmail, etPhone, etAddress;
@@ -125,6 +121,14 @@ public class AddEditMemberActivity extends AppCompatActivity {
         if (!email.isEmpty() && !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             tilEmail.setError(getString(R.string.err_invalid_email));
             hasError = true;
+        }
+
+        if (!phone.isEmpty()) {
+            String cleanPhone = phone.replaceAll("[\\s\\-\\(\\)]", "");
+            if (!cleanPhone.matches("^(\\+91|0)?[6-9]\\d{9}$")) {
+                tilPhone.setError(getString(R.string.err_invalid_phone));
+                hasError = true;
+            }
         }
 
         if (hasError) {

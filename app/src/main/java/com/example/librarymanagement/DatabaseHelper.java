@@ -15,25 +15,18 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-/**
- * SQLiteOpenHelper managing local database storage for books, members, and transactions.
- */
 public class DatabaseHelper extends SQLiteOpenHelper {
-
     private static final String TAG = "DatabaseHelper";
     private static final String DATABASE_NAME = "library_management.db";
     private static final int DATABASE_VERSION = 1;
 
-    // Configurable fine rate: NPR 10 per day overdue
     public static final double DAILY_FINE_RATE = 10.0;
     public static final String DATE_FORMAT = "yyyy-MM-dd";
 
-    // Table Names
     public static final String TABLE_BOOKS = "books";
     public static final String TABLE_MEMBERS = "members";
     public static final String TABLE_TRANSACTIONS = "transactions";
 
-    // Books Table Columns
     public static final String COL_BOOK_ID = "id";
     public static final String COL_BOOK_TITLE = "title";
     public static final String COL_BOOK_AUTHOR = "author";
@@ -45,7 +38,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_BOOK_AVAILABLE_QTY = "available_quantity";
     public static final String COL_BOOK_DESCRIPTION = "description";
 
-    // Members Table Columns
     public static final String COL_MEMBER_ID = "id";
     public static final String COL_MEMBER_NAME = "full_name";
     public static final String COL_MEMBER_MEMBERSHIP_ID = "membership_id";
@@ -55,7 +47,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COL_MEMBER_REG_DATE = "registration_date";
     public static final String COL_MEMBER_STATUS = "status";
 
-    // Transactions Table Columns
     public static final String COL_TRANS_ID = "id";
     public static final String COL_TRANS_BOOK_ID = "book_id";
     public static final String COL_TRANS_MEMBER_ID = "member_id";
@@ -124,20 +115,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(createMembersTable);
         db.execSQL(createTransactionsTable);
 
-        // Seed initial sample books and members for a seamless out-of-the-box experience
         seedInitialData(db);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        // Safe upgrade without destroying user data
         Log.i(TAG, "Upgrading database from version " + oldVersion + " to " + newVersion);
     }
 
     private void seedInitialData(SQLiteDatabase db) {
         String today = getTodayDate();
 
-        // Sample Books
         insertBookInternal(db, "Introduction to Algorithms", "Thomas H. Cormen", "978-0262033848",
                 "Computer Science", "MIT Press", 2009, 5, 5, "Comprehensive textbook on data structures and algorithms.");
         insertBookInternal(db, "Clean Code", "Robert C. Martin", "978-0132350884",
@@ -149,13 +137,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         insertBookInternal(db, "Effective Java", "Joshua Bloch", "978-0134685991",
                 "Programming", "Addison-Wesley", 2018, 5, 5, "Best practices for the Java programming language.");
 
-        // Sample Members
         insertMemberInternal(db, "Aarav Sharma", "LIB-1001", "aarav.sharma@example.com",
-                "+977-9801234567", "Kathmandu, Nepal", today, "Active");
-        insertMemberInternal(db, "Priya Adhikari", "LIB-1002", "priya.adhikari@example.com",
-                "+977-9812345678", "Pokhara, Nepal", today, "Active");
-        insertMemberInternal(db, "Rohan Karki", "LIB-1003", "rohan.karki@example.com",
-                "+977-9823456789", "Lalitpur, Nepal", today, "Active");
+                "+91 98765 43210", "New Delhi, Delhi", today, "Active");
+        insertMemberInternal(db, "Priya Patel", "LIB-1002", "priya.patel@example.com",
+                "+91 98123 45678", "Mumbai, Maharashtra", today, "Active");
+        insertMemberInternal(db, "Rohan Verma", "LIB-1003", "rohan.verma@example.com",
+                "+91 97234 56789", "Bengaluru, Karnataka", today, "Active");
     }
 
     private void insertBookInternal(SQLiteDatabase db, String title, String author, String isbn,
@@ -185,10 +172,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cv.put(COL_MEMBER_STATUS, status);
         db.insert(TABLE_MEMBERS, null, cv);
     }
-
-    // =========================================================================
-    // BOOK CRUD METHODS
-    // =========================================================================
 
     public long insertBook(Book book) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -222,7 +205,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean deleteBook(long bookId) {
         if (getActiveLoansForBook(bookId) > 0) {
-            return false; // Active loans prevent deletion
+            return false;
         }
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_BOOKS, COL_BOOK_ID + " = ?", new String[]{String.valueOf(bookId)}) > 0;
@@ -329,10 +312,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
-    // =========================================================================
-    // MEMBER CRUD METHODS
-    // =========================================================================
-
     public long insertMember(Member member) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -361,7 +340,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public boolean deleteMember(long memberId) {
         if (getActiveLoansForMember(memberId) > 0) {
-            return false; // Active loans prevent deletion
+            return false;
         }
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_MEMBERS, COL_MEMBER_ID + " = ?", new String[]{String.valueOf(memberId)}) > 0;
@@ -466,18 +445,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         );
     }
 
-    // =========================================================================
-    // TRANSACTION METHODS (ISSUE, RETURN, FINE CALCULATION)
-    // =========================================================================
-
-    /**
-     * Atomically issues a book to a member using a database transaction.
-     */
     public boolean issueBook(long bookId, long memberId, String issueDate, String dueDate) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.beginTransaction();
         try {
-            // Check available quantity
             Cursor cursor = db.query(TABLE_BOOKS, new String[]{COL_BOOK_AVAILABLE_QTY},
                     COL_BOOK_ID + " = ?", new String[]{String.valueOf(bookId)}, null, null, null);
             if (cursor == null || !cursor.moveToFirst()) {
@@ -488,10 +459,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             cursor.close();
 
             if (available <= 0) {
-                return false; // No copies left
+                return false;
             }
 
-            // Decrement available copies
             ContentValues bookUpdate = new ContentValues();
             bookUpdate.put(COL_BOOK_AVAILABLE_QTY, available - 1);
             int rowsUpdated = db.update(TABLE_BOOKS, bookUpdate, COL_BOOK_ID + " = ?",
@@ -500,7 +470,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 return false;
             }
 
-            // Insert transaction record
             ContentValues transCv = new ContentValues();
             transCv.put(COL_TRANS_BOOK_ID, bookId);
             transCv.put(COL_TRANS_MEMBER_ID, memberId);
@@ -525,14 +494,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    /**
-     * Atomically returns a book and calculates any overdue fine using a database transaction.
-     */
     public boolean returnBook(long transactionId, String returnDate) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.beginTransaction();
         try {
-            // Retrieve transaction details
             Cursor cursor = db.query(TABLE_TRANSACTIONS, null, COL_TRANS_ID + " = ?",
                     new String[]{String.valueOf(transactionId)}, null, null, null);
             if (cursor == null || !cursor.moveToFirst()) {
@@ -543,17 +508,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String currentStatus = cursor.getString(cursor.getColumnIndexOrThrow(COL_TRANS_STATUS));
             if (!"ISSUED".equalsIgnoreCase(currentStatus)) {
                 cursor.close();
-                return false; // Already returned or invalid status
+                return false;
             }
 
             long bookId = cursor.getLong(cursor.getColumnIndexOrThrow(COL_TRANS_BOOK_ID));
             String dueDate = cursor.getString(cursor.getColumnIndexOrThrow(COL_TRANS_DUE_DATE));
             cursor.close();
 
-            // Calculate fine
             double fine = calculateFine(dueDate, returnDate);
 
-            // Update transaction record
             ContentValues transCv = new ContentValues();
             transCv.put(COL_TRANS_RETURN_DATE, returnDate);
             transCv.put(COL_TRANS_STATUS, "RETURNED");
@@ -565,7 +528,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 return false;
             }
 
-            // Increment book available quantity
             Cursor bookCursor = db.query(TABLE_BOOKS, new String[]{COL_BOOK_QUANTITY, COL_BOOK_AVAILABLE_QTY},
                     COL_BOOK_ID + " = ?", new String[]{String.valueOf(bookId)}, null, null, null);
             if (bookCursor != null && bookCursor.moveToFirst()) {
@@ -591,9 +553,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
-    /**
-     * Calculates the overdue fine given due date and return date strings (yyyy-MM-dd).
-     */
     public static double calculateFine(String dueDateStr, String returnDateStr) {
         if (dueDateStr == null || returnDateStr == null) {
             return 0.0;
@@ -700,10 +659,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return list;
     }
-
-    // =========================================================================
-    // DASHBOARD STATISTICS
-    // =========================================================================
 
     public int getTotalBookTitles() {
         return getCount("SELECT COUNT(*) FROM " + TABLE_BOOKS);

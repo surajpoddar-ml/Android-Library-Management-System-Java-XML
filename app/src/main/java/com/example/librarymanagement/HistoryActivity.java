@@ -17,11 +17,7 @@ import com.google.android.material.chip.ChipGroup;
 
 import java.util.List;
 
-/**
- * Activity for reviewing persistent loan history with filters (All, Issued, Returned, Overdue) and search.
- */
 public class HistoryActivity extends AppCompatActivity {
-
     private EditText etSearch;
     private ImageView ivClearSearch;
     private ChipGroup chipGroupFilter;

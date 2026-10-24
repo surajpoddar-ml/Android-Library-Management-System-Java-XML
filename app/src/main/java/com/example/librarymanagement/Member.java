@@ -2,9 +2,6 @@ package com.example.librarymanagement;
 
 import java.io.Serializable;
 
-/**
- * Model class representing a Member entity in the Library Management System.
- */
 public class Member implements Serializable {
     private long id;
     private String fullName;
@@ -13,7 +10,7 @@ public class Member implements Serializable {
     private String phone;
     private String address;
     private String registrationDate;
-    private String status; // "Active" or "Inactive"
+    private String status;
 
     public Member() {
     }

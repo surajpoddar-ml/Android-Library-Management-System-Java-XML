@@ -13,20 +13,16 @@
     app:cardElevation="2dp"
     app:strokeColor="@color/divider"
     app:strokeWidth="1dp">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
-
-        <!-- Top Row: Transaction ID and Status Badge -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
-
             <TextView
                 android:id="@+id/tvTransId"
                 android:layout_width="wrap_content"
@@ -61,7 +57,6 @@
                 tools:text="ISSUED" />
         </LinearLayout>
 
-        <!-- Book Title -->
         <TextView
             android:id="@+id/tvTransBookTitle"
             android:layout_width="match_parent"
@@ -72,7 +67,6 @@
             android:textStyle="bold"
             tools:text="Introduction to Algorithms" />
 
-        <!-- Member Name -->
         <TextView
             android:id="@+id/tvTransMemberName"
             android:layout_width="match_parent"
@@ -82,7 +76,6 @@
             android:textSize="13sp"
             tools:text="Borrower: Aarav Sharma (LIB-1001)" />
 
-        <!-- Divider -->
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -90,18 +83,15 @@
             android:layout_marginBottom="10dp"
             android:background="@color/divider" />
 
-        <!-- Dates Grid -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -125,7 +115,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -150,7 +139,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="vertical">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -170,7 +158,6 @@
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Bottom bar: Fine & Return Action Button (if applicable) -->
         <LinearLayout
             android:id="@+id/layoutTransFooter"
             android:layout_width="match_parent"
@@ -178,7 +165,6 @@
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">
-
             <TextView
                 android:id="@+id/tvTransFine"
                 android:layout_width="0dp"
@@ -187,7 +173,7 @@
                 android:textColor="@color/status_danger"
                 android:textSize="13sp"
                 android:textStyle="bold"
-                tools:text="Fine: NPR 30.00" />
+                tools:text="Fine: Rs. 30.00" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnQuickReturn"

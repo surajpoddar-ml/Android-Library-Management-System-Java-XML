@@ -29,7 +29,7 @@ Designed for colleges, universities, and schools, the system operates **100% off
   - Double-submission prevention.
 - **Book Return & Fine Processing:**
   - Searchable list of active loans.
-  - Overdue fine calculation: **NPR 10.00 per calendar day** overdue.
+  - Overdue fine calculation: **Rs. 10.00 per calendar day** overdue.
   - Safe confirmation modal displaying fine breakdown before processing.
   - Atomic stock increment and loan closure.
 - **Transaction History & Filter Chips:**

@@ -12,11 +12,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-/**
- * Activity for adding a new book or editing an existing book.
- */
 public class AddEditBookActivity extends AppCompatActivity {
-
     private MaterialToolbar toolbar;
     private TextInputLayout tilTitle, tilAuthor, tilIsbn, tilCategory, tilPublisher, tilYear, tilQuantity, tilDescription;
     private TextInputEditText etTitle, etAuthor, etIsbn, etCategory, etPublisher, etYear, etQuantity, etDescription;
@@ -175,7 +171,6 @@ public class AddEditBookActivity extends AppCompatActivity {
         }
 
         if (existingBook != null) {
-            // Update existing book
             int newAvailable = quantity - activeLoans;
             existingBook.setTitle(title);
             existingBook.setAuthor(author);
@@ -195,7 +190,6 @@ public class AddEditBookActivity extends AppCompatActivity {
                 Toast.makeText(this, "Failed to update book", Toast.LENGTH_SHORT).show();
             }
         } else {
-            // Insert new book
             Book newBook = new Book(title, author, isbn, category, publisher, year, quantity, quantity, description);
             long id = dbHelper.insertBook(newBook);
             if (id != -1) {

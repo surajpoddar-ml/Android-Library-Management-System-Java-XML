@@ -2,8 +2,6 @@
 <resources>
     <string name="app_name">Library Management System</string>
     <string name="app_tagline">Smart &amp; Offline College Library Manager</string>
-
-    <!-- Dashboard -->
     <string name="dashboard_title">Dashboard</string>
     <string name="welcome_librarian">Welcome, Librarian</string>
     <string name="stat_total_titles">Book Titles</string>
@@ -13,8 +11,6 @@
     <string name="stat_total_members">Members</string>
     <string name="stat_overdue_loans">Overdue</string>
     <string name="quick_actions">Quick Actions</string>
-
-    <!-- Navigation / Actions -->
     <string name="action_manage_books">Manage Books</string>
     <string name="action_add_book">Add Book</string>
     <string name="action_manage_members">Manage Members</string>
@@ -22,8 +18,6 @@
     <string name="action_issue_book">Issue Book</string>
     <string name="action_return_book">Return Book</string>
     <string name="action_history">Transaction History</string>
-
-    <!-- Books Screen -->
     <string name="title_books">Books Inventory</string>
     <string name="title_add_book">Add New Book</string>
     <string name="title_edit_book">Edit Book</string>
@@ -37,8 +31,6 @@
     <string name="label_quantity">Total Quantity</string>
     <string name="label_available">Available</string>
     <string name="label_description">Description (Optional)</string>
-
-    <!-- Members Screen -->
     <string name="title_members">Library Members</string>
     <string name="title_add_member">Add New Member</string>
     <string name="title_edit_member">Edit Member</string>
@@ -53,8 +45,6 @@
     <string name="label_status">Status</string>
     <string name="status_active">Active</string>
     <string name="status_inactive">Inactive</string>
-
-    <!-- Issue & Return -->
     <string name="title_issue_book">Issue Book</string>
     <string name="title_return_book">Return Book</string>
     <string name="select_member">Select Member</string>
@@ -66,11 +56,9 @@
     <string name="btn_confirm_return">Confirm Return</string>
     <string name="no_active_loans">No active loans found to return.</string>
     <string name="search_loans_hint">Search loan by book title, member name...</string>
-    <string name="overdue_fine_prefix">Fine: NPR %1$.2f</string>
+    <string name="overdue_fine_prefix">Fine: Rs. %1$.2f</string>
     <string name="overdue_days_count">%1$d Overdue Day(s)</string>
     <string name="on_time">On Time</string>
-
-    <!-- History -->
     <string name="title_history">Transaction History</string>
     <string name="filter_all">All</string>
     <string name="filter_issued">Issued</string>
@@ -78,21 +66,18 @@
     <string name="filter_overdue">Overdue</string>
     <string name="search_history_hint">Search by title, member, or ID...</string>
     <string name="no_history_found">No transaction records found.</string>
-
-    <!-- Buttons & Common -->
     <string name="btn_save">Save</string>
     <string name="btn_cancel">Cancel</string>
     <string name="btn_delete">Delete</string>
     <string name="btn_edit">Edit</string>
     <string name="btn_return">Return</string>
     <string name="btn_confirm">Confirm</string>
-
-    <!-- Validation & Alerts -->
     <string name="err_required">This field is required</string>
     <string name="err_invalid_isbn">Please enter a valid ISBN</string>
     <string name="err_duplicate_isbn">A book with this ISBN already exists</string>
     <string name="err_duplicate_member_id">Membership ID already exists</string>
     <string name="err_invalid_email">Please enter a valid email address</string>
+    <string name="err_invalid_phone">Please enter a valid Indian phone number (10 digits, e.g. +91 9876543210)</string>
     <string name="err_invalid_quantity">Quantity must be greater than 0</string>
     <string name="err_quantity_less_than_issued">Cannot reduce quantity below currently issued copies (%1$d)</string>
     <string name="err_no_copies_available">No copies available for loan</string>
@@ -101,16 +86,15 @@
     <string name="err_select_member">Please select a member</string>
     <string name="err_cannot_delete_book_active_loans">Cannot delete this book. It currently has %1$d active loan(s).</string>
     <string name="err_cannot_delete_member_active_loans">Cannot delete this member. They currently have %1$d unreturned book(s).</string>
-
     <string name="msg_book_saved">Book saved successfully</string>
     <string name="msg_book_deleted">Book deleted successfully</string>
     <string name="msg_member_saved">Member saved successfully</string>
     <string name="msg_member_deleted">Member deleted successfully</string>
     <string name="msg_book_issued">Book issued successfully</string>
-    <string name="msg_book_returned">Book returned successfully! Total Fine: NPR %1$.2f</string>
+    <string name="msg_book_returned">Book returned successfully! Total Fine: Rs. %1$.2f</string>
     <string name="confirm_delete_title">Confirm Delete</string>
     <string name="confirm_delete_book">Are you sure you want to delete this book?</string>
     <string name="confirm_delete_member">Are you sure you want to delete this member?</string>
     <string name="confirm_return_title">Confirm Book Return</string>
-    <string name="confirm_return_message">Do you want to process the return for \"%1$s\" borrowed by %2$s?\nCalculated Fine: NPR %3$.2f</string>
+    <string name="confirm_return_message">Do you want to process the return for \"%1$s\" borrowed by %2$s?\nCalculated Fine: Rs. %3$.2f</string>
 </resources>

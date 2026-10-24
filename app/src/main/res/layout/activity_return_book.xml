@@ -5,12 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
-
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/primary">
-
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbarReturnBook"
             android:layout_width="match_parent"
@@ -26,8 +24,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <!-- Search Input Bar -->
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,13 +34,11 @@
             android:background="@drawable/bg_search_bar"
             android:paddingStart="12dp"
             android:paddingEnd="12dp">
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
-
                 <ImageView
                     android:layout_width="22dp"
                     android:layout_height="22dp"
@@ -78,7 +72,6 @@
             </LinearLayout>
         </FrameLayout>
 
-        <!-- Active Loans RecyclerView -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvActiveLoans"
             android:layout_width="match_parent"
@@ -88,7 +81,6 @@
             android:paddingBottom="24dp"
             tools:listitem="@layout/item_transaction" />
 
-        <!-- Empty State View -->
         <LinearLayout
             android:id="@+id/layoutEmptyLoans"
             android:layout_width="match_parent"
@@ -97,7 +89,6 @@
             android:orientation="vertical"
             android:padding="32dp"
             android:visibility="gone">
-
             <ImageView
                 android:layout_width="72dp"
                 android:layout_height="72dp"
@@ -123,5 +114,4 @@
                 android:textSize="13sp" />
         </LinearLayout>
     </LinearLayout>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

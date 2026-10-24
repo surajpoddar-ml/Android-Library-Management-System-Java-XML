@@ -5,18 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background">
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <!-- Premium Header Banner -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -26,13 +22,11 @@
                 android:paddingTop="28dp"
                 android:paddingEnd="20dp"
                 android:paddingBottom="36dp">
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
-
                     <ImageView
                         android:layout_width="42dp"
                         android:layout_height="42dp"
@@ -46,7 +40,6 @@
                         android:layout_marginStart="14dp"
                         android:layout_weight="1"
                         android:orientation="vertical">
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -60,11 +53,10 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:text="@string/welcome_librarian"
-                            android:textColor="#D0E2FF"
+                            android:textColor="@color/header_subtitle"
                             android:textSize="13sp" />
                     </LinearLayout>
 
-                    <!-- Offline Badge -->
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -80,7 +72,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Overlapping Dashboard Statistics Container -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,7 +79,6 @@
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:orientation="vertical">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -99,12 +89,10 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <!-- Row 1: Titles & Total Copies -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -115,13 +103,11 @@
                         app:cardElevation="@dimen/card_elevation"
                         app:strokeColor="@color/divider"
                         app:strokeWidth="1dp">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:padding="16dp">
-
                             <TextView
                                 style="@style/StatCardLabel"
                                 android:layout_width="wrap_content"
@@ -148,13 +134,11 @@
                         app:cardElevation="@dimen/card_elevation"
                         app:strokeColor="@color/divider"
                         app:strokeWidth="1dp">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:padding="16dp">
-
                             <TextView
                                 style="@style/StatCardLabel"
                                 android:layout_width="wrap_content"
@@ -172,13 +156,11 @@
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
 
-                <!-- Row 2: Available & Issued Copies -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
-
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -189,13 +171,11 @@
                         app:cardElevation="@dimen/card_elevation"
                         app:strokeColor="@color/divider"
                         app:strokeWidth="1dp">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:padding="16dp">
-
                             <TextView
                                 style="@style/StatCardLabel"
                                 android:layout_width="wrap_content"
@@ -223,13 +203,11 @@
                         app:cardElevation="@dimen/card_elevation"
                         app:strokeColor="@color/divider"
                         app:strokeWidth="1dp">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:padding="16dp">
-
                             <TextView
                                 style="@style/StatCardLabel"
                                 android:layout_width="wrap_content"
@@ -248,13 +226,11 @@
                     </com.google.android.material.card.MaterialCardView>
                 </LinearLayout>
 
-                <!-- Row 3: Members & Overdue Loans -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
-
                     <com.google.android.material.card.MaterialCardView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -265,13 +241,11 @@
                         app:cardElevation="@dimen/card_elevation"
                         app:strokeColor="@color/divider"
                         app:strokeWidth="1dp">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:padding="16dp">
-
                             <TextView
                                 style="@style/StatCardLabel"
                                 android:layout_width="wrap_content"
@@ -298,13 +272,11 @@
                         app:cardElevation="@dimen/card_elevation"
                         app:strokeColor="@color/divider"
                         app:strokeWidth="1dp">
-
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
                             android:padding="16dp">
-
                             <TextView
                                 style="@style/StatCardLabel"
                                 android:layout_width="wrap_content"
@@ -324,7 +296,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Navigation Actions Section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -333,7 +304,6 @@
                 android:paddingEnd="16dp"
                 android:paddingBottom="24dp"
                 android:orientation="vertical">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -344,12 +314,10 @@
                     android:textSize="16sp"
                     android:textStyle="bold" />
 
-                <!-- Action 1 & 2: Manage Books & Add Book -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnNavManageBooks"
                         style="@style/Widget.MaterialComponents.Button"
@@ -380,13 +348,11 @@
                         app:strokeColor="@color/primary" />
                 </LinearLayout>
 
-                <!-- Action 3 & 4: Manage Members & Add Member -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
-
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnNavManageMembers"
                         style="@style/Widget.MaterialComponents.Button"
@@ -417,13 +383,11 @@
                         app:strokeColor="@color/primary" />
                 </LinearLayout>
 
-                <!-- Action 5 & 6: Issue Book & Return Book -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
-
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/btnNavIssueBook"
                         style="@style/Widget.MaterialComponents.Button"
@@ -453,7 +417,6 @@
                         app:iconTint="#FFFFFF" />
                 </LinearLayout>
 
-                <!-- Action 7: Transaction History -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnNavHistory"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"

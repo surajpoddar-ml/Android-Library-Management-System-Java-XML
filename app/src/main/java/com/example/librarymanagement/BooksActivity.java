@@ -20,11 +20,7 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 
 import java.util.List;
 
-/**
- * Activity for displaying, searching, and managing books in the library.
- */
 public class BooksActivity extends AppCompatActivity implements BookAdapter.OnBookClickListener {
-
     public static final String EXTRA_BOOK = "extra_book";
 
     private EditText etSearch;

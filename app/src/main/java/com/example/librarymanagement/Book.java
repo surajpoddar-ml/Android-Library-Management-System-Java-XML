@@ -2,9 +2,6 @@ package com.example.librarymanagement;
 
 import java.io.Serializable;
 
-/**
- * Model class representing a Book entity in the Library Management System.
- */
 public class Book implements Serializable {
     private long id;
     private String title;

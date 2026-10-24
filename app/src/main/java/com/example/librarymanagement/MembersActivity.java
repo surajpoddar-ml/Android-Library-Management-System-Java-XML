@@ -20,11 +20,7 @@ import com.google.android.material.floatingactionbutton.ExtendedFloatingActionBu
 
 import java.util.List;
 
-/**
- * Activity for displaying, searching, and managing members.
- */
 public class MembersActivity extends AppCompatActivity implements MemberAdapter.OnMemberClickListener {
-
     public static final String EXTRA_MEMBER = "extra_member";
 
     private EditText etSearch;

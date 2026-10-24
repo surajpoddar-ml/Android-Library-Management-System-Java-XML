@@ -8,11 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
 
-/**
- * Dashboard Activity displaying real-time library statistics and quick navigation buttons.
- */
 public class MainActivity extends AppCompatActivity {
-
     private TextView tvStatTotalTitles;
     private TextView tvStatTotalCopies;
     private TextView tvStatAvailableCopies;
@@ -79,9 +75,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, HistoryActivity.class)));
     }
 
-    /**
-     * Calculates and updates every statistic dynamically from SQLite.
-     */
     private void refreshStatistics() {
         int totalTitles = dbHelper.getTotalBookTitles();
         int totalCopies = dbHelper.getTotalBookCopies();

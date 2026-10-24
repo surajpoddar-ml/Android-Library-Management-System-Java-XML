@@ -21,11 +21,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * Activity for issuing available books to active library members.
- */
 public class IssueBookActivity extends AppCompatActivity {
-
     private Spinner spinnerMembers;
     private Spinner spinnerBooks;
     private TextInputLayout tilDueDate;
@@ -69,7 +65,6 @@ public class IssueBookActivity extends AppCompatActivity {
     }
 
     private void setupSpinners() {
-        // Load active members
         memberList = dbHelper.getActiveMembers();
         List<String> memberNames = new ArrayList<>();
         if (memberList.isEmpty()) {
@@ -83,7 +78,6 @@ public class IssueBookActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_dropdown_item, memberNames);
         spinnerMembers.setAdapter(memberAdapter);
 
-        // Load available books
         bookList = dbHelper.getAvailableBooks();
         List<String> bookTitles = new ArrayList<>();
         if (bookList.isEmpty()) {
@@ -103,7 +97,6 @@ public class IssueBookActivity extends AppCompatActivity {
         String today = dateFormat.format(calendar.getTime());
         etIssueDate.setText(today);
 
-        // Default due date is 14 days later
         calendar.add(Calendar.DAY_OF_YEAR, 14);
         String defaultDueDate = dateFormat.format(calendar.getTime());
         etDueDate.setText(defaultDueDate);
@@ -182,7 +175,6 @@ public class IssueBookActivity extends AppCompatActivity {
             return;
         }
 
-        // Prevent duplicate rapid submissions
         btnSubmit.setEnabled(false);
 
         boolean success = dbHelper.issueBook(book.getId(), member.getId(), issueDate, dueDate);

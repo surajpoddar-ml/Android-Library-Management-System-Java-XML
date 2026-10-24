@@ -15,11 +15,7 @@ import com.google.android.material.button.MaterialButton;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * RecyclerView Adapter for displaying books in the library inventory.
- */
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
-
     public interface OnBookClickListener {
         void onEditClick(Book book);
         void onDeleteClick(Book book);

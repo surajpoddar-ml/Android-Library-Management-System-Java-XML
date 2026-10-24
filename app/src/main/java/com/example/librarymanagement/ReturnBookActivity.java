@@ -18,11 +18,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 
 import java.util.List;
 
-/**
- * Activity for displaying active loans and processing book returns with automatic fine calculation.
- */
 public class ReturnBookActivity extends AppCompatActivity implements TransactionAdapter.OnTransactionClickListener {
-
     private EditText etSearch;
     private ImageView ivClearSearch;
     private RecyclerView rvLoans;

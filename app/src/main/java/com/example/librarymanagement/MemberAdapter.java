@@ -15,11 +15,7 @@ import com.google.android.material.button.MaterialButton;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * RecyclerView Adapter for displaying members of the library.
- */
 public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberViewHolder> {
-
     public interface OnMemberClickListener {
         void onEditClick(Member member);
         void onDeleteClick(Member member);

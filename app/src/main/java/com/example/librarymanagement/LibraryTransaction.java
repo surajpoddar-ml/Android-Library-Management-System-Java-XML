@@ -2,9 +2,6 @@ package com.example.librarymanagement;
 
 import java.io.Serializable;
 
-/**
- * Model class representing a Library Transaction (issue/loan and return record).
- */
 public class LibraryTransaction implements Serializable {
     private long id;
     private long bookId;
@@ -12,10 +9,9 @@ public class LibraryTransaction implements Serializable {
     private String issueDate;
     private String dueDate;
     private String returnDate;
-    private String status; // "ISSUED" or "RETURNED"
+    private String status;
     private double fine;
 
-    // Joined / descriptive helper fields for presentation
     private String bookTitle;
     private String memberFullName;
     private String memberMembershipId;

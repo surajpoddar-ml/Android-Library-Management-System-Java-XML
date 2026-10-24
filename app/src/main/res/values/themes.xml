@@ -1,39 +1,28 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Theme.LibraryManagement" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary_dark</item>
         <item name="colorOnPrimary">@color/text_on_primary</item>
-        
-        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/accent</item>
         <item name="colorSecondaryVariant">@color/accent_dark</item>
         <item name="colorOnSecondary">#FFFFFF</item>
-        
-        <!-- Status bar color. -->
         <item name="android:statusBarColor">@color/primary_dark</item>
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
-        
-        <!-- Background -->
         <item name="android:windowBackground">@color/background</item>
     </style>
 
-    <!-- Toolbar Title Style -->
     <style name="ToolbarTitle" parent="TextAppearance.MaterialComponents.Headline6">
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">19sp</item>
     </style>
 
-    <!-- Stat Card Value Text -->
     <style name="StatCardValue">
         <item name="android:textSize">@dimen/text_counter</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/primary</item>
     </style>
 
-    <!-- Stat Card Label Text -->
     <style name="StatCardLabel">
         <item name="android:textSize">@dimen/text_caption</item>
         <item name="android:textColor">@color/text_secondary</item>

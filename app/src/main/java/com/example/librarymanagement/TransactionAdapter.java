@@ -16,11 +16,7 @@ import com.google.android.material.button.MaterialButton;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * RecyclerView Adapter for displaying loan and return transactions.
- */
 public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder> {
-
     public interface OnTransactionClickListener {
         void onReturnClick(LibraryTransaction transaction);
     }
@@ -88,7 +84,6 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
             }
             holder.btnReturn.setVisibility(View.GONE);
         } else {
-            // Not returned yet - check if overdue
             long overdueDays = DatabaseHelper.calculateOverdueDays(t.getDueDate(), today);
             if (overdueDays > 0) {
                 holder.tvStatus.setText("OVERDUE (" + overdueDays + "d)");
@@ -97,7 +92,7 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
 
                 double estFine = overdueDays * DatabaseHelper.DAILY_FINE_RATE;
                 holder.tvFine.setVisibility(View.VISIBLE);
-                holder.tvFine.setText(String.format("Est. Fine: NPR %.2f", estFine));
+                holder.tvFine.setText(String.format("Est. Fine: Rs. %.2f", estFine));
             } else {
                 holder.tvStatus.setText("ISSUED");
                 holder.tvStatus.setBackgroundResource(R.drawable.bg_badge_issued);

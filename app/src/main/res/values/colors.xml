@@ -28,4 +28,7 @@
     <color name="badge_issued">#0D5C3A</color>
     <color name="badge_overdue">#DC2626</color>
     <color name="ripple_color">#1F0D5C3A</color>
+    <color name="surface_variant">#F8FAFC</color>
+    <color name="outline_subtle">#E2E8F0</color>
+    <color name="chip_background">#EEF2F6</color>
 </resources>

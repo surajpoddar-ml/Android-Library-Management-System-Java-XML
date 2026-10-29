@@ -271,6 +271,16 @@ This application is strictly self-contained:
 
 ---
 
+## Design System & Theme Guidelines
+
+The application follows Google Material Components standards:
+- **Consistent Tokens**: Semantic color naming in `colors.xml` separates text, accent, and status indicators.
+- **Visual Feedback**: Ripple interaction highlights on cards and lists for responsive tactile feel.
+- **Input Validation**: Clear error messaging and inline assistive helper hints for date pickers and form fields.
+
+---
+
 ## License
 
 This project is licensed under the terms of the [MIT License](LICENSE).
+

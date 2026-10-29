@@ -133,7 +133,8 @@
                         app:endIconDrawable="@drawable/ic_calendar"
                         app:endIconMode="custom"
                         app:endIconTint="@color/accent"
-                        app:errorEnabled="true">
+                        app:errorEnabled="true"
+                        app:helperText="Standard borrowing period is 14 days">
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/etDueDate"
                             android:layout_width="match_parent"
